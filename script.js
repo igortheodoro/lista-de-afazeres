@@ -15,7 +15,7 @@ $("i").on('click', function enviar() {
         
             if(i % 2 == 0 ){
 
-                selecItem.style.backgroundColor = "#80bdff"
+                selecItem.style.backgroundColor = "#e7e7e7"
 
             }
         }
@@ -33,14 +33,19 @@ $(document).keypress(function (e) {
 // Função de aparecer o ícone de lixo 
 
 $(document).on('mouseenter','li', function () { 
-    
-    $('span', this).addClass("fas fa-trash lixeiraEstilo");
+
+    $(this).fadeIn('slow', function () {
+
+        $('span', this).addClass("fas fa-trash lixeiraEstilo");
+
+    })
+
 
 });
 
 $(document).on('mouseleave','li', function () { 
 
-   $('span', this).removeClass("fas fa-trash lixeiraEstilo");
+        $('span', this).removeClass("fas fa-trash lixeiraEstilo");
 
 });
 
@@ -48,7 +53,11 @@ $(document).on('mouseleave','li', function () {
 
 $(document).on('click','span',  function () {
 
-    $(this).parent('li').remove();
+    $(this).parent('li').fadeOut('slow', function(){
+
+        $(this).parent('li').remove();
+
+    });
 
 })
 
